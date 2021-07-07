@@ -1,3 +1,17 @@
 .App {
   text-align: center;
+  margin: 30px;
 }
+
+.card {
+  display: flex-inline;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  padding: 10px;
+  text-align: left;
+  width: 300px;
+}
+
