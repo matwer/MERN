@@ -15,7 +15,9 @@ class Card extends Component {
 
 	// create a function to add 1 to the displayed age 
 	plusOne = () => {
-		this.setState({age: this.state.age + 1});
+			this.setState({
+			age: this.state.age + 1
+		});
 	}
 
 	// render the page with the a first name, last name, age and hair color
