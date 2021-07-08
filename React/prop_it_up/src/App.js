@@ -5,25 +5,17 @@ import Card from './components/Card';
 function App() {
   return (
     <div className="App">
-      <div class="card">
-        <h2><Card lastName={"Doe" } />, <Card firstName={"Jane" } /></h2>
-        <p>Age: <Card age={ "45" } /></p>
-        <p>Hair color: <Card hairColor={ "Blonde" } /></p>
+      <div className="card">
+        <Card lastName={"Doe"} firstName={"Jane"} age={45} hairColor={"Blonde"} />
       </div>
-      <div class="card">
-        <h2><Card lastName={"Smith" } />, <Card firstName={"John" } /></h2>
-        <p>Age: <Card age={ "88" } /></p>
-        <p>Hair color: <Card hairColor={ "White" } /></p>
+      <div className="card">
+        <Card lastName={"Smith"} firstName={"John"} age = {88} hairColor={"White"} />
       </div>
-      <div class="card">
-        <h2><Card lastName={"Fillmore" } />,<Card firstName={"Millard" } /></h2>
-        <p>Age: <Card age={ "50" } /></p>
-        <p>Hair Color: <Card hairColor={ "Brown" } /></p>
+      <div className="card">
+        <Card lastName={"Fillmore"} firstName={"Millard"} age={50} hairColor={"Brown"} />
       </div>
-      <div class="card">
-        <h2><Card lastName={"Smith" } />,<Card firstName={"Maria" } /></h2>
-        <p>Age: <Card age={ "62" } /></p>
-        <p>Hair color: <Card hairColor={ "Silver" } /></p>
+      <div className="card">
+        <Card lastName={"Smith"} firstName={"Maria" } age={62} hairColor={"Silver"} />
       </div>
     </div>
   );
