@@ -28,7 +28,7 @@ class Card extends Component {
 				<h2>{this.state.lname}, {this.state.fname}  </h2>
 				<p>Age: {this.state.age}</p>
 				<p>Hair color: {this.state.hcolor}</p>
-				<button className="btn" onClick={this.plusOne}>{this.state.fname} {this.state.lname}'s birthday!</button>
+				<button className="btn-grad" onClick={this.plusOne}>{this.state.fname} {this.state.lname}'s birthday!</button>
 			</>
 		);
 	}
