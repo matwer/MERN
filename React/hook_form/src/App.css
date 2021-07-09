@@ -1,0 +1,12 @@
+/* The form (background) */
+.wrapper {
+  width: 80%; /* Full width */
+  height: 50%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+  padding : 5px 20px;
+}
+
+
