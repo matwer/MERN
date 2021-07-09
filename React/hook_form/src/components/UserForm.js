@@ -20,32 +20,32 @@ const UserForm = props => {
 	// it can't pass the data
 	return (
 		<div className = { mycss.wrapper }>
-			<h1>User Form	</h1>
+			<h1>User Form</h1>
 			<form>
 				<fieldset>
 					<div class="form-group">
 						<label htmlFor="firstName">First name:</label>
-						<input onChange={onChange} type="text" name="firstName" />
+						<input onChange={(e) => onChange(e)} type="text" name="firstName" />
 					</div>
 
 					<div class="form-group">
 						<label htmlFor="lastName">Last name:</label>
-						<input onChange={onChange} type="text" name="lastName" />
+						<input onChange={(e) => onChange(e)} type="text" name="lastName" />
 					</div>
 
 					<div class="form-group">
 						<label htmlFor="email">Email:</label>
-						<input onChange={onChange} type="email" name="email" />
+						<input onChange={(e) => onChange(e)} type="email" name="email" />
 					</div>
 
 					<div class="form-group">
 						<label htmlFor="password">Password:</label>
-						<input onChange={onChange} type="password" name="password" />
+						<input onChange={(e) => onChange(e)} type="password" name="password" />
 					</div>
 
 					<div class="form-group">
 						<label htmlFor="confirmPassword">Confirm password:</label>
-						<input onChange={onChange} type="password" name="confirmPassword" />
+						<input onChange={(e) => onChange(e)} type="password" name="confirmPassword" />
 					</div>
 				</fieldset>
 			</form>

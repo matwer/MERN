@@ -9,7 +9,7 @@ const ShowResults = ({liveStream}) => {
 	// display the data in real time - it's super important that what's in the {}
 	// matches with the name set in App.js. if they don't match, it can't pass the data
 	return (
-		<div className = {mycss.centered }>
+		<div className = { mycss.centered }>
 			<form>
 				<h2>Your form data</h2>
 				<p>First name: { firstName }</p>
@@ -19,7 +19,6 @@ const ShowResults = ({liveStream}) => {
 				<p>Confirm Password: { confirmPassword }</p>
 			</form>
 		</div>
-
 	);
 };
 

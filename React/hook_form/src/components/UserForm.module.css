@@ -1,6 +1,6 @@
 /* Format the background of the form */
 .wrapper {
-  width: 60%; /* Full width */
+  width: 80%; /* Full width */
   height: 20%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #8BC6EC;
