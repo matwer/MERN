@@ -1,0 +1,21 @@
+import React from 'react';
+import styles from "./Display.module.css";
+
+const Display = ({ allUsers }) => {
+
+
+    return (
+        <>
+        <fieldset className={styles.wrap}>
+        <legend>Display.jsx</legend>
+            {
+                allUsers.map((user, i) => {
+                    return <li key={i}>{i + 1} - {user.firstName}</li>
+                })
+            }
+            </fieldset>
+        </>
+    )
+}
+
+export default Display;

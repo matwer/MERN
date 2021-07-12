@@ -1,0 +1,134 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@matwer 
+jupiterorbita
+/
+MERN_JULY_2021
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+MERN_JULY_2021/w1d5/forms/src/components/Form.js /
+@jupiterorbita
+jupiterorbita refactor Forms app
+Latest commit 3c272c7 17 hours ago
+ History
+ 1 contributor
+91 lines (82 sloc)  2.98 KB
+  
+import React, { useState } from 'react';
+import styles from "./Form.module.css";
+
+const Form = (props) => {
+    // const {addNewUser} = props;
+    // props.addNewUser()
+
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
+    // const [email, setEmail] = useState("");
+    const [someTest, setSomeTest] = useState("");
+    const [someTestErr, setSomeTestErr] = useState("");
+
+    const [user, setUser] = useState({
+        firstName: "",
+        lastName: "",
+        email: ""
+    })
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // pass whatever is stored in our state to the app.js function
+        props.addNewUser(user);
+        // once we pass the user over we clear the inputs
+        setUser({
+            firstName: "",
+            lastName: "",
+            email: ""
+        })
+    }
+
+    const handleAnyChange = (e) => {
+        //    console.log(e);
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const changeTest = (e) => {
+        if (e.target.value.length < 4 && e.target.value.length > 0) {
+            setSomeTestErr("input must have at least 4 chars");
+        } 
+        else if (e.target.value === "" ){
+            setSomeTestErr("at least put something here 🙃");
+        }
+        else {
+            // else clear the input
+            setSomeTestErr("");
+            // if there are no errors add the change to state
+            setSomeTest(e.target.value)
+        }
+    }
+
+    return (
+        <fieldset className={styles.wrap}>
+            <legend>Form.js</legend>
+            <form onSubmit={handleSubmit}>
+                <p>
+                    {JSON.stringify(user)}
+                </p>
+                <p>
+                    <label htmlFor="firstName"> First name:</label>
+                    <input onChange={handleAnyChange} type="text" name="firstName" value={user.firstName} />
+                </p>
+                <p>
+                    <label htmlFor="lastName"> Last name:</label>
+                    <input onChange={handleAnyChange} type="text" name="lastName" value={user.lastName}/>
+                </p>
+                <p className="red">
+                    <label htmlFor="email"> Email name:</label>
+                    <input onChange={handleAnyChange} type="text" name="email" value={user.email} />
+                </p>
+                <p>
+                    Error test : <input onChange={changeTest} type="text" name="someTest" /><br />
+                    {/* {someTestErr ? "put more text 😊" : ""} */}
+                    {someTestErr ? <span style={{ color: "red" }}>{someTestErr}</span> : <span>&nbsp;</span>}
+                </p>
+                "{someTest}"
+                <input type="submit" value="create user" className={styles.btn} />
+            </form>
+            <p>
+                firstName: {user.firstName}<br />
+                lastName: {user.lastName}
+            </p>
+        </fieldset>
+    )
+}
+
+export default Form;
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

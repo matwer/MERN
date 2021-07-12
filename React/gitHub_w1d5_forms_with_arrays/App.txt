@@ -1,0 +1,48 @@
+  
+import './App.css';
+import React, { useState } from 'react';
+import Form from './components/Form';
+import Display from './components/Display';
+
+function App() {
+
+  const [allUsers, setAllUsers] = useState([])
+  console.log(allUsers);
+
+  // push new user to allUsers array
+  const addNewUser = (newUserObj) => {
+    console.log("app.js addNewUser > ", newUserObj);
+
+    const newUserArr = [...allUsers];
+    newUserArr.push(newUserObj);
+    setAllUsers(newUserArr);
+
+    // fixed bug, had to wrap it in [] for the array
+    // setAllUsers([...allUsers, newUserObj]);
+
+
+  }
+
+  return (
+    <div >
+      <fieldset className="App">
+      <legend className="bg">App.js</legend>
+        <h2>Forms</h2>
+ 
+        <Form addNewUser={addNewUser} />
+ 
+        {/* <p>
+        {
+          allUsers.map( (user, i) => {
+            return <li key={i}>{i+1} - {user.firstName}</li>
+          })
+        }
+        all users: {JSON.stringify(allUsers)}
+      </p> */}
+        <Display allUsers={allUsers} />
+      </fieldset>
+    </div>
+  );
+}
+
+export default App;
