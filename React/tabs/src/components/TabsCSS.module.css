@@ -1,0 +1,10 @@
+/* Format the button */
+button {
+	color: antiquewhite;
+	background-color: #1e90fc;
+	height: 40px;
+	width: 60px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+}
