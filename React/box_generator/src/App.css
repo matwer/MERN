@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Format the form fields */
+fieldset {
+	width: 50%; /* Full width */
+	height: 20%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	/* background-color: #8BC6EC;
+	background-image: linear-gradient(0deg, #8BC6EC 0%, #9599E2 100%);  */
+	margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+	padding : 5px 5px;
+	border-radius: 10px; /* round those corners */
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 10px /* round those corners */
+}
+
