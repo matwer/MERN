@@ -7,9 +7,9 @@ import ShowContent from './components/ShowContent';
 function App() {
   // creating tabs with predefined content
   const[tabs, setTabs] = useState ([
-    {header: "Tab 1", content: "Animals"},
-    {header: "Tab 2", content: "Cars"},
-    {header: "Tab 3", content: "Balloons"}
+    {header: "Tab 1", content: "Lions"},
+    {header: "Tab 2", content: "Tigers"},
+    {header: "Tab 3", content: "Bears"}
   ])
   
   // creating a variable to hold the index of the tab that's been selected
