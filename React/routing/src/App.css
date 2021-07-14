@@ -1,0 +1,64 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.navbar {
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  width: 90%;
+}
+
+.main {
+  margin: 15px;
+  height: 90%;
+  width: 90%;
+  border-radius: 10px;
+}
+
+fieldset {
+  margin: 15px;
+  background-color:lightgrey;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  border-radius: 10px;
+}
+
+.left-column {
+  display: flex;
+  justify-content: center;
+  background-color:lightblue;
+  height: 100%;
+  border-radius: 10px;
+  margin: 10px; 
+}
+
+.right-column {
+  background-color:lightgreen;
+  height: 100%;
+  border-radius: 10px;
+  margin: 10px 10px 10px 0px; 
+}

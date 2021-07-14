@@ -12,11 +12,11 @@ function App() {
     {header: "Tab 3", content: "Bears"}
   ])
   
-  // creating a variable to hold the index of the tab that's been selected
-  const [index, setIndex] = useState(0);
+ const [index, setIndex] = useState(0);  // creating a variable to hold the index of the tab that's been selected
+ 
 
   // passes the index of the tab that's currently selected to Tabs.jsx
-	const displayContent = (idx) => {
+	const getIndex = (idx) => {
     // verify we're getting what we expect
 		// console.log("index " + idx)
     // use setIndex to set the index to the current index

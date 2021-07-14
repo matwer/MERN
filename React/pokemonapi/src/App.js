@@ -7,23 +7,24 @@ function App() {
 
   const [pokemon, setPokemon] = useState([]);
 
-  useEffect( () => { 
-    fetch("https://pokeapi.co/api/v2//pokemon", { mode: 'no-cors'})
+  const onClickHandler = () => { 
+    fetch("https://pokeapi.co/api/v2/pokemon")
       .then(response => {
           return response.json();
       }).then(response => {
-          console.log(response.results);
-          // setPokemon(response.results)
+          // console.log(response.results);
+          setPokemon(response.results)
       }).catch(err=>{
           console.log(err);
       });
-  }, [])
+  }
 
 
 return (
   <div className="App">
       <fieldset>
         <legend>Pokemon</legend>
+        <button onClick={() => onClickHandler()} >Click Me!</button>
         {
           pokemon.map((poke, idx) => {
             return <p key={idx}>{ poke.name }</p>

@@ -25,7 +25,7 @@ const Tabs = ({tab, idx, tabs, displayContent}) => {
 				margin: "3px"
 			}}>
 				{/* onClick displays the content if the button that was clicked */}
-				<button onClick = { () => displayContent(idx) } >{ tab.header }</button>
+				<button onClick = { () => getIndex(idx) } >{ tab.header }</button>
 			</div>
 		</>
 	)
