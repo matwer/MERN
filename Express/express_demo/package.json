@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "express_demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
