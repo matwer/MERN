@@ -111,17 +111,17 @@ const Login = (props) => {
 						{
 							firstNameError ?
 							<p style={{color:'red'}}>{ firstNameError }</p> :
-							''
+							<p>&nbsp;</p>
 						}
 					</div>
 
 					<div className= { mycss.formGroup }>
-						<label htmlFor="lastName">First name:</label>
+						<label htmlFor="lastName">Last name:</label>
 						<input type="text" onChange={ handleLastName } placeholder = "Must be at least 2 characters" />
 						{
 							lastNameError ?
 							<p style={{color:'red'}}>{ lastNameError }</p> :
-							''
+							<p>&nbsp;</p>
 						}
 					</div>
 
@@ -131,7 +131,7 @@ const Login = (props) => {
 						{
 							emailError ?
 							<p style={{color:'red'}}>{ emailError }</p> :
-							''
+							<p>&nbsp;</p>
 						}
 					</div>
 
@@ -141,7 +141,7 @@ const Login = (props) => {
 						{
 							pwError ?
 							<p style={{color:'red'}}>{ pwError }</p> :
-							''
+							<p>&nbsp;</p>
 						}
 					</div>
 
@@ -151,7 +151,7 @@ const Login = (props) => {
 						{
 							confirmPWError ?
 							<p style={{color:'red'}}>{ confirmPWError }</p> :
-							''
+							<p>&nbsp;</p>
 						}
 					</div>
 					<p className= { mycss.centered }>

@@ -12,7 +12,7 @@ function App() {
       .then(response => {
           // console.log(response.data.results);
           setPokemon(response.data.results);
-      }).catch(err=>{
+      }).catch(err=> {
           console.log(err);
       });
   }
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
         <fieldset>
-          <legend>Pokemon</legend>
+          <legend>Axios Pokemon</legend>
           <button onClick={() => onClickHandler()} >Click Me!</button>
           {
             pokemon.map((poke, idx) => {
