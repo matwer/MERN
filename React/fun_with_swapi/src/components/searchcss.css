@@ -1,0 +1,22 @@
+/* Format the input fields */
+input[type=text] {
+	background-color: lightgray;
+	width: 30%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+/* Format the submit button */
+input[type=submit] {
+	color: antiquewhite;
+	background-color: #1e90fc;
+	height: 25px;
+	width: 60px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+}
