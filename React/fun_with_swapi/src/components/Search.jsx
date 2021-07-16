@@ -1,4 +1,4 @@
-import './searchcss.css';
+import './SearchCSS.css';
 
 import React from 'react';
 // you need this for the submitHandler to work
@@ -29,8 +29,9 @@ const Search = (props) => {
 	return (	
 		<div className="wrapper">
 			<form onSubmit={submitHandler}>
-				Search for: 
+				<label htmlFor="type">Search for: </label>
 				<select 
+					name="type"
 					value={selectedType} 
 					onChange={
 						(e) => setSelectedType(e.target.value)}>
@@ -38,11 +39,11 @@ const Search = (props) => {
 						(<option key={index} value={availType}>{availType}</option>)
 					)}
             	</select>
-				ID: <input value={selectedID} type="number" min="1" max="100"
+					<label htmlFor="id">ID: </label>
+					<input value={selectedID} type="number" min="1" max="100" name="id"
 					onChange={(e) => setSelectedID(e.target.value)} />
 				<input type="submit" value="Search" />
 			</form>
-			<hr/>
 		</div>
 	)
 }

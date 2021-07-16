@@ -1,3 +1,5 @@
+import './DisplayCSS.css';
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -74,13 +76,15 @@ const Display = ({type, id}) => {
 		)
 	} else {
 		return (
-			<div>
-				<h3>{results.name}</h3>
-				<p>Model: {results.model}</p>
-				<p>Manufacturer: {results.manufacturer}</p>
-				<p>Crew: {results.crew}</p>
-				<p>Passengers: {results.passengers}</p>
-			</div>
+			<>
+				<div>
+					<h3>{results.name}</h3>
+					<p>Model: {results.model}</p>
+					<p>Manufacturer: {results.manufacturer}</p>
+					<p>Crew: {results.crew}</p>
+					<p>Passengers: {results.passengers}</p>
+				</div>
+			</>
 		)
 	}
 }

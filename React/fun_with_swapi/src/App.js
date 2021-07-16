@@ -8,6 +8,7 @@ import Failure from './components/Failure';
 function App() {
   return (
     <div className="App">
+      <h2>APIwalker</h2>
       {/* <h1>Hello! Coming to you Live (ish) from App.js!</h1> */}
       <Search />
       {/* anything inside Router needs a path */}

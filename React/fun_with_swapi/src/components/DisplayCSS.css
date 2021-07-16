@@ -1,13 +1,9 @@
+/* Format the input fields */
 div {
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
 	border-radius:10px;
-	margin: 5px;
-}
-
-/* Format the input fields */
-label {
 	margin: 5px;
 }
 
