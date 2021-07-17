@@ -1,0 +1,418 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22000}\viewkind4\uc1 
+\pard\sl240\slmult1\highlight1\f0\fs22\lang9 PS C:\\Program Files\\MongoDB\\Server\\5.0\\bin> .\\mongo.exe\highlight0\par
+MongoDB shell version v5.0.0\par
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb\par
+Implicit session: session \{ "id" : UUID("aa461559-26a6-42ca-b311-b7e2ab69f4d0") \}\par
+MongoDB server version: 5.0.0\par
+================\par
+Warning: the "mongo" shell has been superseded by "mongosh",\par
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in\par
+an upcoming release.\par
+---\par
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display\par
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).\par
+\par
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you     \par
+        and anyone you share the URL with. MongoDB may use this information to make product\par
+        improvements and to suggest MongoDB products and deployment options to you.\par
+\par
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()\par
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()        \par
+---\par
+\highlight1 > use my_first_db\par
+\highlight0 switched to db my_first_db\par
+> db.students.insert\par
+...\par
+> db.students.insert(\{\})\par
+Wrdb.students.push(\{name: "John Doe"\}, \{home_state: "WA"\}, \{lucky_number: 13\}, \{birthday: \{\{month: 3\}, \{day: 15\}, \{year: 1969\}\}\})me: "John Doe"\}, \{home_state: "WA"\}, \{lucky_number: 13\}, \{birthday: \{\{mon\}, \{\}, \{\}\}\})\par
+uncaught exception: SyntaxError: expected property name, got '\{' :\par
+@(shell):1:89\par
+> db.students.push(\{name: "John Doe"\}, \{home_state: "WA"\}, \{lucky_number: 13\}, \{birthday: \{month: 3\}, \{day: 15\}, \{year: 1969\}\})  \par
+uncaught exception: SyntaxError: expected property name, got '\{' :\par
+@(shell):1:100\par
+> db.students.push(\{name: "John Doe", home_state: "WA", lucky_number: 13, birthday: \{month: 3\}, \{day: 15\}, \{year: 1969\})       \par
+...\par
+... db.students.push(\{name: "John Doe"\}, \{home_state: "WA"\}, \{lucky_number: 13\}, \{birthday: \{month: 3\}, \{day: 15\}, \{year: 1969\}\})^C\par
+\par
+> db.students.insert(name: "John Doe", home_state: "WA", lucky_number: 13, birthday: \{month: 3\}, \{day: 15\}, \{year: 1969\})        \par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:23\par
+> show collections\par
+students\par
+> db.students.insert(name: "John Doe", home_state: "WA", lucky_number: 13, birthday: \{month: 3, day: 15, year: 1969\})    \par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:23\par
+> db.students.insert(name: "John Doe", home_state: "WA", lucky_number: 13, birthday: [month: 3, day: 15, year: 1969])\par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:23\par
+> show collectionsstudents\par
+> show dbs\par
+admin        0.000GB\par
+config       0.000GB\par
+local        0.000GB\par
+my_first_db  0.000GB\par
+> use my_first_db\par
+swdb.students.insert(\{name: "John Doe", home_state: "WA", lucky_number: 13, birthday: \{month: 3, day: 15, year: 1969\} \}).insert(\{name: "John Doe", home_state: "WA", lucky_number: 13, birthday: \{month: 3, day: 1\} \})\par
+WriteResult(\{ "nInserted" : 1 \})\par
+> show students\par
+uncaught exception: Error: don't know how to show [students] :\par
+shellHelper.show@src/mongo/shell/utils.js:1209:11\par
+shellHelper@src/mongo/shell/utils.js:836:15\par
+@(shellhelp2):1:1\par
+> db.students.find(),pretty()\par
+uncaught exception: ReferenceError: pretty is not defined :\par
+@(shell):1:20\par
+> db.students.find().pretty()\par
+\{ "_id" : ObjectId("60f1f99340bec5398dfdcf93") \}\par
+\{\par
+        "_id" : ObjectId("60f1feb740bec5398dfdcf94"),\par
+        "name" : "John Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 13,\par
+        "birthday" : \{\par
+                "month" : 3,\par
+                "day" : 15,\par
+                "year" : 1969\par
+        \}\par
+\}\par
+\highlight1 > db.students.insert(\{name: "Jane Doe", home_state: "WA", lucky_number: 7, birthday: \{month: 9, day: 13, year: 1974\} \}) \par
+WriteResult(\{ "nInserted" : 1 \})\par
+> db.students.insert(\{name: "Phil Doe", home_state: "WA", lucky_number: 11, birthday: \{month: 10, day: 31, year: 1990\} \})\par
+WriteResult(\{ "nInserted" : 1 \})\par
+> db.students.insert(\{name: "Ray Doe", home_state: "WA", lucky_number: 3, birthday: \{month: 4, day: 15, year: 1989\} \})   \par
+WriteResult(\{ "nInserted" : 1 \})\par
+>\par
+> db.students.insert(\{name: "Ray Doe", home_state: "WA", lucky_number: 3, birthday: \{month: 4, day: 1, year: 1992\} \})  \par
+\highlight0 WriteResult(\{ "nInserted" : 1 \})\par
+> db.students.find(),pretty()\par
+uncaught exception: ReferenceError: pretty is not defined :\par
+@(shell):1:20\par
+\highlight1 > db.students.find().pretty()\highlight0\par
+\{ "_id" : ObjectId("60f1f99340bec5398dfdcf93") \}\par
+\{\par
+        "_id" : ObjectId("60f1feb740bec5398dfdcf94"),\par
+        "name" : "John Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 13,\par
+        "birthday" : \{\par
+                "month" : 3,\par
+                "day" : 15,\par
+                "year" : 1969\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff3040bec5398dfdcf96"),\par
+        "name" : "Phil Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 11,\par
+        "birthday" : \{\par
+                "month" : 10,\par
+                "day" : 31,\par
+                "year" : 1990\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 15,\par
+                "year" : 1989\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff9740bec5398dfdcf98"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 1,\par
+                "year" : 1992\par
+        \}\par
+\}\par
+> db.students.find(home_state: \{#=$eq: "WA" "CA"\}).pretty()\par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:27\par
+> db.students.find(home_state: \{#=$eq: "WA","CA"\}).pretty()\par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:27\par
+> db.students.find( \{home_state: \{#=$eq: "WA","CA"\} \} ).pretty()\par
+uncaught exception: SyntaxError: illegal character :\par
+@(shell):1:32\par
+> db.students.find( \{home_state: \{ $eq: "WA"\} \} ).pretty()      \par
+\{\par
+        "_id" : ObjectId("60f1feb740bec5398dfdcf94"),\par
+        "name" : "John Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 13,\par
+        "birthday" : \{\par
+                "month" : 3,\par
+                "day" : 15,\par
+                "year" : 1969\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff3040bec5398dfdcf96"),\par
+        "name" : "Phil Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 11,\par
+        "birthday" : \{\par
+                "month" : 10,\par
+                "day" : 31,\par
+                "year" : 1990\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 15,\par
+                "year" : 1989\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff9740bec5398dfdcf98"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 1,\par
+                "year" : 1992\par
+        \}\par
+\}\par
+> db.students.find( \{home_state: \{ $eq: "WA"\}.\{ $eq: "CA" \} \} ).pretty()\par
+uncaught exception: SyntaxError: missing name after . operator :\par
+@(shell):1:44\par
+> db.students.find( \{home_state: \{ $eq: "WA"\}, \{ $eq: "CA" \} \} ).pretty()\par
+uncaught exception: SyntaxError: expected property name, got '\{' :\par
+@(shell):1:45\par
+> db.students.find( \{home_state: \{ $eq: "WA", "CA" \} \} ).pretty()        \par
+uncaught exception: SyntaxError: missing : after property id :\par
+@(shell):1:49\par
+> db.students.find( \{home_state: \{ $eq: "WA" $or "CA" \} \} ).pretty()  \par
+uncaught exception: SyntaxError: missing \} after property list :\par
+@(shell):1:43\par
+> db.students.find( \{home_state: \{ "WA" $or "CA" \} \} ).pretty()     \par
+uncaught exception: SyntaxError: missing : after property id :\par
+@(shell):1:38\par
+> db.students.find( home_state: \{ "WA" $or "CA" \}  ).pretty()  \par
+uncaught exception: SyntaxError: missing ) after argument list :\par
+@(shell):1:28\par
+> db.students.find( \{ home_state: "WA" $or "CA" \}  ).pretty()\par
+uncaught exception: SyntaxError: missing \} after property list :\par
+@(shell):1:37\par
+> db.students.find ( \{ home_state: "WA" $or "CA" \} )         \par
+uncaught exception: SyntaxError: missing \} after property list :\par
+@(shell):1:38\par
+> db.students.find ( \{ $or: [\{ home_state: "WA"\}, \{ home_state: "CA"\}] )\par
+... ^C\par
+\par
+\highlight1 > db.students.find ( \{ $or: [ \{ home_state: "WA" \}, \{ home_state: "CA" \} ] \} )\highlight0\par
+\{ "_id" : ObjectId("60f1feb740bec5398dfdcf94"), "name" : "John Doe", "home_state" : "WA", "lucky_number" : 13, "birthday" : \{ "month" : 3, "day" : 15, "year" : 1969 \} \}\par
+\{ "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"), "name" : "Jane Doe", "home_state" : "WA", "lucky_number" : 7, "birthday" : \{ "month" : 9, "day" : 13, "year" : 1974 \} \}\par
+\{ "_id" : ObjectId("60f1ff3040bec5398dfdcf96"), "name" : "Phil Doe", "home_state" : "WA", "lucky_number" : 11, "birthday" : \{ "month" : 10, "day" : 31, "year" : 1990 \} \}\par
+\{ "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"), "name" : "Ray Doe", "home_state" : "WA", "lucky_number" : 3, "birthday" : \{ "month" : 4, "day" : 15, "year" : 1989 \} \}\par
+\{ "_id" : ObjectId("60f1ff9740bec5398dfdcf98"), "name" : "Ray Doe", "home_state" : "WA", "lucky_number" : 3, "birthday" : \{ "month" : 4, "day" : 1, "year" : 1992 \} \}\par
+\highlight1 > db.students.find ( \{ $or: [ \{ home_state: "WA" \}, \{ home_state: "CA" \} ] \} ).pretty()\highlight0\par
+\{\par
+        "_id" : ObjectId("60f1feb740bec5398dfdcf94"),\par
+        "name" : "John Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 13,\par
+        "birthday" : \{\par
+                "month" : 3,\par
+                "day" : 15,\par
+                "year" : 1969\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff3040bec5398dfdcf96"),\par
+        "name" : "Phil Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 11,\par
+        "birthday" : \{\par
+                "month" : 10,\par
+                "day" : 31,\par
+                "year" : 1990\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 15,\par
+                "year" : 1989\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff9740bec5398dfdcf98"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 1,\par
+                "year" : 1992\par
+        \}\par
+\}\par
+> db.students.find ( \{ $gt: \{ lucky_number \} ).pretty()                                \par
+... ^C\par
+\par
+\highlight1 > db.students.find( \{ lucky_number: \{ $gt: 3\} \} ).pretty()\highlight0\par
+\{\par
+        "_id" : ObjectId("60f1feb740bec5398dfdcf94"),\par
+        "name" : "John Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 13,\par
+        "birthday" : \{\par
+                "month" : 3,\par
+                "day" : 15,\par
+                "year" : 1969\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff3040bec5398dfdcf96"),\par
+        "name" : "Phil Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 11,\par
+        "birthday" : \{\par
+                "month" : 10,\par
+                "day" : 31,\par
+                "year" : 1990\par
+        \}\par
+\}\par
+> db.students.find( \{ lucky_number: \{ $lte: 10\} \} ).pretty()\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 15,\par
+                "year" : 1989\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff9740bec5398dfdcf98"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 1,\par
+                "year" : 1992\par
+        \}\par
+\}\par
+> db.students.find( \{ $and [ \{ lucky_number:  $gt: 1\}, \{ lucky_number:  $lt: 9 \}] \} \} ).pretty()\par
+uncaught exception: SyntaxError: missing : after property id :\par
+@(shell):1:25\par
+> db.students.find( \{ $and: [ \{ lucky_number: $gt: 1\}, \{ lucky_number:  $lt: 9 \}] \} \} ).pretty()\par
+uncaught exception: SyntaxError: missing \} after property list :\par
+@(shell):1:47\par
+> db.students.find( \{ $and: [ \{ lucky_number: $gt: 1\}, \{ lucky_number:  $lt: 9 \} ] \} ).pretty() \par
+uncaught exception: SyntaxError: missing \} after property list :\par
+@(shell):1:47\par
+\highlight1 > db.students.find( \{ $and: [ \{ lucky_number: \{ $gte: 1 \} \}, \{ lucky_number: \{ $lte: 9 \} \} ] \} ).pretty()\highlight0\par
+\{\par
+        "_id" : ObjectId("60f1ff0b40bec5398dfdcf95"),\par
+        "name" : "Jane Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 7,\par
+        "birthday" : \{\par
+                "month" : 9,\par
+                "day" : 13,\par
+                "year" : 1974\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff5a40bec5398dfdcf97"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 15,\par
+                "year" : 1989\par
+        \}\par
+\}\par
+\{\par
+        "_id" : ObjectId("60f1ff9740bec5398dfdcf98"),\par
+        "name" : "Ray Doe",\par
+        "home_state" : "WA",\par
+        "lucky_number" : 3,\par
+        "birthday" : \{\par
+                "month" : 4,\par
+                "day" : 1,\par
+                "year" : 1992\par
+        \}\par
+\}\par
+}
+ 
