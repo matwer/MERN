@@ -4,8 +4,25 @@ const mongoose = require("mongoose");
 
 // creates the schema for the database which determines how items are added to the database
 const UserSchema = new mongoose.Schema({
-	name: String,
-	age: Number
+	first_name: { 
+		type: String,
+		required: [true, "First name is required"],
+		minLength: [6, "First name must contain at least 6 characters"]
+	},
+	last_name: { 
+		type: String,
+		required: [true, "Last name is required"],
+		minLength: [6, "Last name must contain at least 6 characters"]
+	},
+	age: { 
+		type: Number,
+		min: [1, "You must be at least 1 year old to register"],
+		max: [150, "Your age cannot exceed 149 yeras"]
+	},
+	email: { 
+		type: String,
+		required: [true, "A valid email address is required to register"]
+	},
 }, {
 	// optional: that tells Mongoose to automatically manage 
 	// createdAt and updatedAt properties for your documents

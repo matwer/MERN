@@ -17,8 +17,8 @@ require("./server/config/mongoose.config");
 app.use(express.json(), express.urlencoded({ extended: true }));
 
 // This is where we import the routes from our user.routes.js file
-const AllMyUserRoutes = require("./server/routes/user.routes");
-AllMyUserRoutes(app);
+const MyRoutes = require("./server/routes/user.routes");
+MyRoutes(app);
 
 // tells the system to listen on the specified port and sends a message to the terminal
 app.listen(PORT, () => console.log(`>>> The server is up and running on port ${PORT} <<<`));
