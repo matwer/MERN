@@ -12,13 +12,13 @@
 
 // another option, since we set up all the CRUD operations as an object
 // we can destructure them and call them directly without prepending UserConroller
-const { findAllUsers, findOneUser, updateExistingUser, createNewUser, deleteAnExistingUser } = require("../controllers/user.controller");
+const { findAllUsers, findOneUser, updateUser, createNewUser, deleteUser } = require("../controllers/user.controller");
 
 // app is in refernce to express from server.js
 module.exports = (app) => {
   app.get("/api/users/", findAllUsers);
   app.get("/api/users/:id", findOneUser);
-  app.put("/api/users/update/:id", updateExistingUser);
+  app.put("/api/users/update/:id", updateUser);
   app.post("/api/users/new", createNewUser);
-  app.delete("/api/users/delete/:id", deleteAnExistingUser);
+  app.delete("/api/users/delete/:id", deleteUser);
 };

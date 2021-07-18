@@ -47,7 +47,7 @@ module.exports = {
         console.log(allUsers);
         res.json(allUsers);
       })
-      .catch(err => res.json({ message: "Something went wrong", error: err }));
+      .catch(err => res.json({ message: "Something went wrong in findAllUsers", error: err }));
   },
 
   // find One
@@ -57,7 +57,7 @@ module.exports = {
         console.log(oneUser);
         res.json(oneUser);
       })
-      .catch(err => res.json({ message: "Something went wrong", error: err }));
+      .catch(err => res.json({ message: "Something went wrong in findOneUser", error: err }));
   },
     
   // create
@@ -67,27 +67,27 @@ module.exports = {
         console.log(newUser);
         res.json(newUser);
       })
-      .catch(err => res.json({ message: "Something went wrong", error: err }));
+      .catch(err => res.json({ message: "Something went wrong in createNewUser", error: err }));
   },
     
   // udpate
-  updateExistingUser: (req, res) => {
+  updateUser: (req, res) => {
     User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .then(updatedUser => {
         console.log(updatedUser);
         res.json(updatedUser);
       })
-      .catch(err => res.json({ message: "Something went wrong", error: err }));
+      .catch(err => res.json({ message: "Something went wrong in updateUser", error: err }));
   },
     
   // delete
-  deleteAnExistingUser: (req, res) => {
+  deleteUser: (req, res) => {
     User.deleteOne({ _id: req.params.id })
       .then(result => {
         console.log(result);
         res.json(result);
       })
-      .catch(err => res.json({ message: "Something went wrong", error: err }));
+      .catch(err => res.json({ message: "Something went wrong in deleteUser", error: err }));
   }
 
 }
