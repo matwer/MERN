@@ -3,22 +3,25 @@
 const mongoose = require("mongoose");
 
 // creates the schema for the database which determines how items are added to the database
-const JokeSchema = new mongoose.Schema({ 
-	setup: { 
-		type: String,
-		required: [true, "setup is required"],
-		minLength: [3, "setup must contain at least 3 characters"]
-	},
-	punchline: { 
-		type: String,
-		required: [true, "punchline is required"],
-		minLength: [3, "punhline must contain at least 3 characters"]
-	}
-}, {
-	// optional: that tells Mongoose to automatically manage 
-	// createdAt and updatedAt properties for your documents
-	timestamps: true
-});
+const JokeSchema = new mongoose.Schema(
+  {
+    setup: {
+      type: String,
+      required: [true, "setup is required"],
+      minLength: [3, "setup must contain at least 3 characters"],
+    },
+    punchline: {
+      type: String,
+      required: [true, "punchline is required"],
+      minLength: [3, "punchline must contain at least 3 characters"],
+    },
+  },
+  {
+    // optional: that tells Mongoose to automatically manage
+    // createdAt and updatedAt properties for your documents
+    timestamps: true,
+  }
+);
 
 // creates the MongoDB collection using the schema defined above
 // this is teh equivalent of creating a table in MySQL
