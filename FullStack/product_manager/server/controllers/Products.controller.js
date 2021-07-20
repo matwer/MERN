@@ -48,7 +48,7 @@ module.exports = {
       );
   },
 
-  // udpate
+  // update
   updateProduct: (req, res) => {
     Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .then((updatedProduct) => {

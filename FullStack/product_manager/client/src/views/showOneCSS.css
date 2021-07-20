@@ -1,0 +1,31 @@
+.main {
+  background-color: grey;
+  color: white;
+  height: 10%;
+  width: 40%;
+  border-radius: 10px;
+  margin: 10px 10px 10px 30%;
+  padding: 5px;
+}
+
+input[type="text"] {
+  width: 50%;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 3px;
+}
+
+input[type="submit"] {
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+button {
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
