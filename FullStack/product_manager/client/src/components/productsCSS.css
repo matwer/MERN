@@ -1,18 +1,19 @@
 .main {
   background-color: lightblue;
   height: 10%;
-  width: 40%;
+  width: 70%;
   border-radius: 10px;
   margin: 10px 10px 10px 30%;
   padding: 5px;
+  overflow-x: auto;
 }
 
 input[type="text"] {
+  height: 30px;
   width: 50%;
   border-width: 1px;
   border-radius: 5px;
   margin: 5px;
-  padding: 3px;
 }
 
 input[type="submit"] {
@@ -27,4 +28,37 @@ button {
   width: 50px;
   margin: 3px;
   padding: 3px;
+}
+
+table {
+  /* adds 10px to top & bottom and centers the table */
+  background-color: white;
+  color: black;
+  margin: 10px auto;
+  width: 80%;
+}
+
+thead {
+  background-color: lightblue;
+}
+
+td {
+  width: 30%;
+}
+
+tr {
+  height: 50px;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.left {
+  padding-left: 15px;
+  text-align: left;
 }

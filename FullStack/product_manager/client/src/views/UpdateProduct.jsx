@@ -26,7 +26,7 @@ export default (props) => {
     // stop the default behavior
     e.preventDefault();
     axios
-      .put("http://localhost:8000/api/products/edit/" + id, {
+      .put("http://localhost:8000/api/products/" + id, {
         productName,
         productPrice,
         productDescription,

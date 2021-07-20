@@ -1,7 +1,7 @@
 import "./showOneCSS.css";
 
 import React, { useEffect, useState } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import axios from "axios";
 
 export default (props) => {
@@ -15,6 +15,14 @@ export default (props) => {
       .then((res) => setProduct(res.data));
   }, []);
 
+  const deleteProduct = (productId) => {
+    axios
+      .delete("http://localhost:8000/api/products/" + props.id)
+      .then((res) => {
+        navigate("/products");
+      });
+  };
+
   return (
     <div className="main">
       <h3>{product.productName}</h3>
@@ -23,6 +31,14 @@ export default (props) => {
       <button>
         <Link to={"/products/" + product._id + "/edit"}>Edit</Link>
       </button>{" "}
+      |
+      <button
+        onClick={(e) => {
+          deleteProduct(product._id);
+        }}
+      >
+        Delete
+      </button>
       |
       <button>
         <Link to={"/products"}>Cancel</Link>

@@ -4,8 +4,8 @@ const Product = require(`../models/Products.model`);
 // create & export the CRUD operations as an object
 module.exports = {
   // create
-  createNewProduct: (req, res) => {
-    Product.create(req.body)
+  create: (req, res) => {
+    Product.create(req.body) // runValidators runs automatically
       .then((newProduct) => {
         console.log(newProduct);
         res.json(newProduct);
@@ -19,7 +19,7 @@ module.exports = {
   },
 
   // findAll
-  findAllProducts: (req, res) => {
+  findAll: (req, res) => {
     Product.find()
       .then((allProducts) => {
         console.log(allProducts);
@@ -27,14 +27,14 @@ module.exports = {
       })
       .catch((err) =>
         res.json({
-          message: `Something went wrong finding all products`,
+          message: `Something went wrong find all`,
           error: err,
         })
       );
   },
 
   // find One
-  findOneProduct: (req, res) => {
+  findOne: (req, res) => {
     Product.findOne({ _id: req.params.id })
       .then((oneProduct) => {
         console.log(oneProduct);
@@ -42,29 +42,32 @@ module.exports = {
       })
       .catch((err) =>
         res.json({
-          message: `Something went wrong finding the product`,
+          message: `Something went wrong with find`,
           error: err,
         })
       );
   },
 
   // update
-  updateProduct: (req, res) => {
-    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+  findOneAndUpdate: (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body, {
+      new: true,
+      runValidators: true,
+    })
       .then((updatedProduct) => {
         console.log(updatedProduct);
         res.json(updatedProduct);
       })
       .catch((err) =>
         res.json({
-          message: `Something went wrong updating the product`,
+          message: `Something went wrong the update`,
           error: err,
         })
       );
   },
 
   // delete
-  deleteProduct: (req, res) => {
+  deleteOne: (req, res) => {
     Product.deleteOne({ _id: req.params.id })
       .then((result) => {
         console.log(result);
@@ -72,7 +75,7 @@ module.exports = {
       })
       .catch((err) =>
         res.json({
-          message: `Something went wrong deleting the product`,
+          message: `Something went wrong with delete`,
           error: err,
         })
       );

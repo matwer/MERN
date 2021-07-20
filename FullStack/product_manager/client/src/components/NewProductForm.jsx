@@ -16,13 +16,17 @@ export default () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     axios
       .post("http://localhost:8000/api/products/new", {
         productName,
         productPrice,
         productDescription,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        window.location.reload(true); // what are the supported options
+        console.log(res);
+      })
       .catch((err) => console.log(err));
   };
 
