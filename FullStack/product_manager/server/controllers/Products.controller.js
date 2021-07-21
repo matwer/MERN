@@ -5,17 +5,17 @@ const Product = require(`../models/Products.model`);
 module.exports = {
   // create
   create: (req, res) => {
-    Product.create(req.body) // runValidators runs automatically
+    const { productName, productPrice, productDescription } = req.body;
+    Product.create({
+      productName,
+      productPrice,
+      productDescription,
+    }) // runValidators runs automatically
       .then((newProduct) => {
         console.log(newProduct);
         res.json(newProduct);
       })
-      .catch((err) =>
-        res.json({
-          message: `Something went wrong when creating a Product`,
-          error: err,
-        })
-      );
+      .catch((err) => res.status(400).json(err));
   },
 
   // findAll
@@ -58,12 +58,7 @@ module.exports = {
         console.log(updatedProduct);
         res.json(updatedProduct);
       })
-      .catch((err) =>
-        res.json({
-          message: `Something went wrong the update`,
-          error: err,
-        })
-      );
+      .catch((err) => res.status(400).json(err));
   },
 
   // delete

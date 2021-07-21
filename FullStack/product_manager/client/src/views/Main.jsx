@@ -27,6 +27,7 @@ export default () => {
     });
   }, []);
 
+  // set up a fcn to upload the DOM on delete and send the fcn to ShowAllProducts
   const removeFromDom = (productId) => {
     setProducts(products.filter((product) => product._id != productId));
   };

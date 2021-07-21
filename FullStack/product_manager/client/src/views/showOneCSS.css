@@ -1,6 +1,5 @@
 .main {
-  background-color: grey;
-  color: white;
+  background-color: lightslategray;
   height: 10%;
   width: 75%;
   border-radius: 10px;
@@ -21,6 +20,7 @@ input[type="submit"] {
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
+  text-align: center;
 }
 
 button {
@@ -28,4 +28,5 @@ button {
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
+  text-align: center;
 }

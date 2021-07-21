@@ -20,7 +20,7 @@ export default ({ products, removeFromDom }) => {
   return (
     <>
       <div className="main">
-        <h3>Products</h3>
+        <h3>All Products</h3>
         <table>
           <thead>
             <tr>
@@ -39,7 +39,7 @@ export default ({ products, removeFromDom }) => {
                     <td>
                       <p key={i}>
                         <button>
-                          <Link to={"/products/" + product._id}>Edit</Link>
+                          <Link to={"/products/" + product._id}>View</Link>
                         </button>
                         |
                         <button

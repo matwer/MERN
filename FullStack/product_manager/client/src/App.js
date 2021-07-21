@@ -3,7 +3,7 @@ import "./App.css";
 
 // import React
 import React from "react";
-import { Router } from "@reach/router";
+import { Router, Redirect } from "@reach/router";
 
 // import your components
 import Main from "./views/Main";
@@ -14,7 +14,9 @@ function App() {
   return (
     <div className="App">
       {/* load the Main component */}
+      <h2>Product Manager</h2>
       <Router>
+        <Redirect from="/" to="/products" noThrow="true" />
         <UpdateProduct path="/products/:id/edit" />
         <ShowOneProduct path="/products/:id" />
         <Main path="/products" />

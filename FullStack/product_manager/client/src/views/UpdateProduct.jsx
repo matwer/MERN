@@ -4,6 +4,7 @@ import "./showOneCSS.css";
 // import React and axios
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, navigate } from "@reach/router";
 
 export default (props) => {
   console.log("props in update " + props);
@@ -11,6 +12,9 @@ export default (props) => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
+
+  // set up a local variable for errors
+  const [errors, setErrors] = useState([]);
 
   // pre-populate the form with the existing product data
   useEffect(() => {
@@ -31,13 +35,33 @@ export default (props) => {
         productPrice,
         productDescription,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        navigate("/products");
+        console.log(res);
+      })
+      .catch((err) => {
+        // get the errors from err.response.data
+        const errorResponse = err.response.data.errors;
+        // define an error array to push the messages in
+        const errorArr = [];
+        // Loop through the error to get teh message
+        for (const key of Object.keys(errorResponse)) {
+          errorArr.push(errorResponse[key].message);
+        }
+        // set the errors
+        setErrors(errorArr);
+      });
   };
 
   return (
     <div className="main">
       <h3>Edit product</h3>
       <form onSubmit={updateProduct}>
+        {errors.map((err, index) => (
+          <p className="errorMsg" key={index}>
+            *** {err} ***
+          </p>
+        ))}
         <p>
           <label htmlFor="productName">Product: </label>
           <input
@@ -48,7 +72,7 @@ export default (props) => {
           />
         </p>
         <p>
-          <label htmlFor="productPrice">Proce: $ </label>
+          <label htmlFor="productPrice">Price: $ </label>
           <input
             type="text"
             name="productPrice"
@@ -65,7 +89,12 @@ export default (props) => {
             onChange={(e) => setProductDescription(e.target.value)}
           />
         </p>
-        <input type="submit" value="Update" />
+        <p>
+          <input type="submit" value="Update" /> |
+          <button>
+            <Link to={"/products"}>Cancel</Link>
+          </button>
+        </p>
       </form>
     </div>
   );
