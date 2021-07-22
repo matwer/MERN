@@ -1,5 +1,6 @@
 // import mongoose from node_modulrs
 const mongoose = require(`mongoose`);
+mongoose.set("runValidators", true);
 
 // create a variable with the database name
 const DB = "productsDB";

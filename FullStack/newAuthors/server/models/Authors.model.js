@@ -18,7 +18,7 @@ const AuthorSchema = new mongoose.Schema(
       // },
     },
   },
-  { timestamps: true }
+  { timestamps: true } // tracks createdAt, updatedAt
 );
 
 // create the mongoDB collection (like creating a table in MySQL)

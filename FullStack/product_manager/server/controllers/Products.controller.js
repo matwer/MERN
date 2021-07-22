@@ -25,12 +25,7 @@ module.exports = {
         console.log(allProducts);
         res.json(allProducts);
       })
-      .catch((err) =>
-        res.json({
-          message: `Something went wrong find all`,
-          error: err,
-        })
-      );
+      .catch((err) => res.status(400).json(err));
   },
 
   // find One
@@ -68,11 +63,6 @@ module.exports = {
         console.log(result);
         res.json(result);
       })
-      .catch((err) =>
-        res.json({
-          message: `Something went wrong with delete`,
-          error: err,
-        })
-      );
+      .catch((err) => res.status(400).json(err));
   },
 };

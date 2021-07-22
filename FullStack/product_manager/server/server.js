@@ -1,22 +1,18 @@
-// import express and set the port
+// import express and cors from node_modules
 const express = require(`express`);
-// initialize cors for cross-domain requests
 const cors = require(`cors`);
 
 // initialize an instance of express() and set the port
 const app = express();
 const PORT = 8000;
 
-// import the mongoose config
-require(`./config/mongoose.config`);
-
-// tell express to use cors
+// tell express to use cors, save the records to JSON and lets the
+// system know we're passing data over the URL
 app.use(cors());
-
-// tell express to save the records in JSON - NEEDS TO BE BEFORE THE ROUTES
 app.use(express.json(), express.urlencoded({ extended: true }));
 
-// import our routes
+// import the mongoose config and our routes
+require(`./config/mongoose.config`);
 const MyRoutes = require(`./routes/Products.routes`);
 MyRoutes(app);
 
