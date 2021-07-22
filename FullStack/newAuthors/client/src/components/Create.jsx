@@ -10,7 +10,7 @@ const Create = (props) => {
   const [dbErrors, setDBErrors] = useState([]);
 
   // on submit, do the things
-  const submitHandler = (e) => {
+  const addAuthor = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8000/api/authors/new", {
@@ -18,6 +18,7 @@ const Create = (props) => {
       })
       .then((res) => {
         console.log(res);
+        setAuthorsName(""); // works with value={} in form to reset on success
         navigate("/");
       })
       .catch((err) => {
@@ -43,20 +44,23 @@ const Create = (props) => {
           *** {err} ***
         </p>
       ))}
-      <form onSubmit={submitHandler}>
+      <form onSubmit={addAuthor}>
         <p>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
             name="authorsName"
             id="authorsName"
+            value={authorsName} // dbl binding
             placeholder="Authors name (at least 3 characters)"
             onChange={(e) => setAuthorsName(e.target.value)}
           />
         </p>
         <input type="submit" value="Submit" />
         <button>
-          <Link to={"/"}>Cancel</Link>
+          <Link to={"/"} className="btn">
+            Cancel
+          </Link>
         </button>
       </form>
     </div>

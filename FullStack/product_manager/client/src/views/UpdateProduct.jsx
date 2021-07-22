@@ -36,6 +36,9 @@ export default (props) => {
         productDescription,
       })
       .then((res) => {
+        setProductName(""); // works with value={xxx} in the form to reset on success
+        setProductPrice(""); // works with value={xxx} in the form to reset on success
+        setProductDescription(""); // works with value={xxx} in the form to reset on success
         navigate("/products");
         console.log(res);
       })
@@ -67,7 +70,7 @@ export default (props) => {
           <input
             type="text"
             name="productName"
-            value={productName}
+            value={productName} //dbl binding
             onChange={(e) => setProductName(e.target.value)}
           />
         </p>
@@ -76,7 +79,7 @@ export default (props) => {
           <input
             type="text"
             name="productPrice"
-            value={productPrice}
+            value={productPrice} //dbl binding
             onChange={(e) => setProductPrice(e.target.value)}
           />
         </p>
@@ -85,7 +88,7 @@ export default (props) => {
           <input
             type="text"
             name="productDescription"
-            value={productDescription}
+            value={productDescription} //dbl binding
             onChange={(e) => setProductDescription(e.target.value)}
           />
         </p>

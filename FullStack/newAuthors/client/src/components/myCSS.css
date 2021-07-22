@@ -44,6 +44,8 @@ input[type="text"] {
 
 input[type="submit"] {
   background-color: lightblue;
+  height: 30px;
+  width: 60px;
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
@@ -52,9 +54,21 @@ input[type="submit"] {
 button {
   background-color: lightblue;
   height: 30px;
-  width: 50px;
+  width: 60px;
   margin: 3px;
   padding: 3px;
+  border-radius: 5px;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: lightblue;
+  color: black;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .errorMsg {

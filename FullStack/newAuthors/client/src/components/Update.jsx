@@ -28,6 +28,7 @@ const Update = (props) => {
       })
       .then((res) => {
         console.log(res);
+        setAuthorsName(""); // works with value={} in form to reset on success
         navigate("/");
       })
       .catch((err) => {
@@ -60,7 +61,7 @@ const Update = (props) => {
             type="text"
             name="authorsName"
             id="authorsName"
-            value={authorsName}
+            value={authorsName} // dbl binding
             onChange={(e) => setAuthorsName(e.target.value)}
           />
         </p>

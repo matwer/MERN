@@ -6,14 +6,12 @@ const express = require(`express`);
 const app = express();
 const PORT = 8000;
 
-// import the mongoose config
-require(`./config/mongoose.config`);
-
 // tell express to use cors and save entries as JSON
 app.use(cors());
 app.use(express.json(), express.urlencoded({ extended: true }));
 
-// import our routes
+// import the mongoose config and the routes
+require(`./config/mongoose.config`);
 require(`./routes/Authors.routes`)(app);
 
 // set up a listener on the specified port

@@ -18,7 +18,10 @@ const Main = (props) => {
       .get("http://localhost:8000/api/authors")
       .then((res) => {
         console.log(res.data);
-        setAuthors(res.data);
+        let ordered = res.data;
+        setAuthors(
+          ordered.sort((a, b) => a.authorsName.localeCompare(b.authorsName))
+        );
       })
       .catch((err) => console.log(err));
   };
@@ -51,7 +54,12 @@ const Main = (props) => {
                 <td>{author.authorsName}</td>
                 <td>
                   <p>
-                    <Link to={"/authors/" + author._id}>Edit</Link> |
+                    <button>
+                      <Link to={"/authors/" + author._id} className="btn">
+                        Edit
+                      </Link>{" "}
+                    </button>
+                    |
                     <button onClick={() => deleteAuthor(author._id)}>
                       Delete
                     </button>

@@ -1,4 +1,4 @@
-// import mongoose from node_modulrs
+// import mongoose from node_modules
 const mongoose = require(`mongoose`);
 mongoose.set("runValidators", true);
 

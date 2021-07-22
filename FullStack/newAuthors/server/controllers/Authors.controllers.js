@@ -40,6 +40,7 @@ module.exports = {
   findOneAndUpdate: (req, res) => {
     Author.findOneAndUpdate({ _id: req.params.id }, req.body, {
       new: true,
+      runValidators: true, // on update, run the validator
     })
       .then((updatedAuthor) => {
         console.log(updatedAuthor);

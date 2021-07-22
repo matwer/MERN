@@ -25,7 +25,9 @@ export default () => {
         productDescription,
       })
       .then((res) => {
-        window.location.reload(true); // what are the supported options
+        setProductName(""); // works with value={} in the form to reset on success
+        setProductPrice(""); // works with value={} in the form to reset on success
+        setProductDescription(""); // works with value={} in the form to reset on success
         console.log(res);
       })
       .catch((err) => {
@@ -59,6 +61,7 @@ export default () => {
             <input
               type="text"
               name="productName"
+              value={productName} //dbl binding
               placeholder="Enter product name (min 3 characters)"
               onChange={(e) => setProductName(e.target.value)}
             />
@@ -68,6 +71,7 @@ export default () => {
             <input
               type="text"
               name="productPrice"
+              value={productPrice} //dbl binding
               placeholder="Enter product price (min $.01)"
               onChange={(e) => setProductPrice(e.target.value)}
             />
@@ -77,6 +81,7 @@ export default () => {
             <input
               type="text"
               name="productDescription"
+              value={productDescription} //dbl binding
               placeholder="Enter product description (min 3 characters)"
               onChange={(e) => setProductDescription(e.target.value)}
             />
