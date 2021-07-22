@@ -1,5 +1,5 @@
 .main {
-  background-color: lightslategray;
+  background-color: #c0c0c0;
   height: 10%;
   width: 75%;
   border-radius: 10px;
@@ -18,15 +18,30 @@ input[type="text"] {
 input[type="submit"] {
   background-color: lightgrey;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-  text-align: center;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 button {
   background-color: lightgrey;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-  text-align: center;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: lightgrey;
+  color: black;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 5px;
 }

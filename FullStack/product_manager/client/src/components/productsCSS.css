@@ -1,5 +1,5 @@
 .main {
-  background-color: lightslategray;
+  background-color: c0c0c0;
   height: 10%;
   width: 70%;
   border-radius: 10px;
@@ -32,16 +32,19 @@ input[type="text"] {
 
 input[type="submit"] {
   background-color: antiquewhite;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
 }
 
 button {
   height: 30px;
-  width: 50px;
+  width: 60px;
   margin: 3px;
   padding: 3px;
+  border-radius: 5px;
 }
 
 table {
@@ -75,6 +78,17 @@ tr:nth-child(even) {
 .left {
   padding-left: 15px;
   text-align: left;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: lightgrey;
+  color: black;
+  height: 30px;
+  width: 60px;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .errorMsg {

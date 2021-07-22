@@ -26,11 +26,11 @@ export default (props) => {
   return (
     <div className="main">
       <h3>{product.productName}</h3>
-      <p>Price: {product.productPrice}</p>
+      <p>Price: $ {product.productPrice}</p>
       <p>Description: {product.productDescription}</p>
       <button>
         <Link to={"/products/" + product._id + "/edit"}>Edit</Link>
-      </button>{" "}
+      </button>
       |
       <button
         onClick={(e) => {
@@ -41,7 +41,9 @@ export default (props) => {
       </button>
       |
       <button>
-        <Link to={"/products"}>Cancel</Link>
+        <Link to={"/products"} className="btn">
+          Cancel
+        </Link>
       </button>
     </div>
   );

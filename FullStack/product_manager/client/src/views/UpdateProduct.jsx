@@ -95,7 +95,9 @@ export default (props) => {
         <p>
           <input type="submit" value="Update" /> |
           <button>
-            <Link to={"/products"}>Cancel</Link>
+            <Link to={"/products"} className="btn">
+              Cancel
+            </Link>
           </button>
         </p>
       </form>

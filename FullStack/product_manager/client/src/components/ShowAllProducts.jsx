@@ -39,7 +39,9 @@ export default ({ products, removeFromDom }) => {
                     <td>
                       <p key={i}>
                         <button>
-                          <Link to={"/products/" + product._id}>View</Link>
+                          <Link to={"/products/" + product._id} className="btn">
+                            View
+                          </Link>
                         </button>
                         |
                         <button
