@@ -12,12 +12,28 @@ export default () => {
   const [productPrice, setProductPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
 
-  // set up a local variable for errors
-  const [errors, setErrors] = useState([]);
+  // set up variables for frontend and backend errors
+  const [productNameError, setProductNameError] = useState("");
+  const [productPriceError, setProductPriceError] = useState("");
+  const [productDescriptionError, setProductDescriptionError] = useState("");
+  const [dbErrors, setDBErrors] = useState([]);
 
-  const submitHandler = (e) => {
+  // set a boolean to determine if the form has been submitted and set it's default value
+  const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+
+  // set up frontend validations
+  const handleProductName = (e) => {
+    setProductName(e.target.value);
+
+    if (e.target.value.length < 3) {
+      setProductNameError("Product name must be at least 3 characters");
+    } else {
+      setProductNameError(false);
+    }
+  };
+
+  const addProduct = (e) => {
     e.preventDefault();
-
     axios
       .post("http://localhost:8000/api/products/new", {
         productName,
@@ -25,10 +41,10 @@ export default () => {
         productDescription,
       })
       .then((res) => {
+        console.log(res);
         setProductName(""); // works with value={} in the form to reset on success
         setProductPrice(""); // works with value={} in the form to reset on success
         setProductDescription(""); // works with value={} in the form to reset on success
-        console.log(res);
       })
       .catch((err) => {
         // get the errors from err.response.data
@@ -40,7 +56,7 @@ export default () => {
           errorArr.push(errorResponse[key].message);
         }
         // set the errors
-        setErrors(errorArr);
+        setDBErrors(errorArr);
       });
   };
 
@@ -50,8 +66,8 @@ export default () => {
       {/* <h4>Hello from ProductForm.jsx!</h4> */}
       <div className="main">
         <h3>New Product</h3>
-        <form onSubmit={submitHandler}>
-          {errors.map((err, index) => (
+        <form onSubmit={addProduct}>
+          {dbErrors.map((err, index) => (
             <p className="errorMsg" key={index}>
               *** {err} ***
             </p>
@@ -63,6 +79,7 @@ export default () => {
               name="productName"
               value={productName} //dbl binding
               placeholder="Enter product name (min 3 characters)"
+              onInput={(e) => handleProductName(e.target.value)}
               onChange={(e) => setProductName(e.target.value)}
             />
           </p>

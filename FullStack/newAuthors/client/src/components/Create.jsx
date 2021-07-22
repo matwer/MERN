@@ -7,7 +7,22 @@ import "./myCSS.css";
 const Create = (props) => {
   // declare local variables to store the DB entries and the errors
   const [authorsName, setAuthorsName] = useState("");
+
+  // set up variables for front end and backend validations
+  const [authorsNameError, setAuthorsNameError] = useState("");
   const [dbErrors, setDBErrors] = useState([]);
+
+  // frontend validation for the authors name
+  const handleAuthorsName = (e) => {
+    // console.log(e.target.value);
+    setAuthorsName(e.target.value);
+
+    if (e.target.value.length < 3) {
+      setAuthorsNameError("Authors name must be at least 3 characters");
+    } else {
+      setAuthorsNameError("");
+    }
+  };
 
   // on submit, do the things
   const addAuthor = (e) => {
@@ -38,7 +53,7 @@ const Create = (props) => {
     <div className="main">
       {/* <h5>Hello World! from NewAuthor.jsx!</h5> */}
       <h3>Add an author</h3>
-      {/* post any errors here */}
+      {/* post any backend errors here */}
       {dbErrors.map((err, i) => (
         <p className="errorMsg" key={i}>
           *** {err} ***
@@ -46,14 +61,20 @@ const Create = (props) => {
       ))}
       <form onSubmit={addAuthor}>
         <p>
-          <label htmlFor="name">Name:</label>
+          {/* show frontend validation errors here */}
+          {authorsNameError ? (
+            <p style={{ color: "red" }}>{authorsNameError}</p>
+          ) : (
+            <p>&nbsp;</p>
+          )}
+          <label htmlFor="name">Name: </label>
           <input
             type="text"
             name="authorsName"
             id="authorsName"
-            value={authorsName} // dbl binding
+            value={authorsName} // needed for dbl binding
             placeholder="Authors name (at least 3 characters)"
-            onChange={(e) => setAuthorsName(e.target.value)}
+            onChange={handleAuthorsName} // calls the fcn for frontend validations
           />
         </p>
         <input type="submit" value="Submit" />

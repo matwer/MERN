@@ -18,30 +18,15 @@ input[type="text"] {
 input[type="submit"] {
   background-color: lightgrey;
   border-radius: 5px;
-  height: 30px;
-  width: 60px;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
 }
 
 button {
   background-color: lightgrey;
   border-radius: 5px;
-  height: 30px;
-  width: 60px;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 5px;
-}
-
-.btn {
-  text-decoration: none;
-  background-color: lightgrey;
-  color: black;
-  height: 30px;
-  width: 60px;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
 }

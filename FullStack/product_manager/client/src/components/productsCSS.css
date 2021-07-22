@@ -1,5 +1,5 @@
 .main {
-  background-color: c0c0c0;
+  background-color: #c0c0c0;
   height: 10%;
   width: 70%;
   border-radius: 10px;
@@ -15,17 +15,17 @@ form {
 
 .myPTags {
   width: 60%;
-  display: flex;
-  justify-content: space-between;
 }
 
-label {
-  text-align: end;
+.myPTags label {
+  width: 60%;
+  display: flex;
+  justify-content: center;
 }
 
 input[type="text"] {
   height: 30px;
-  width: 50%;
+  width: 75%;
   border-width: 1px;
   border-radius: 5px;
 }
@@ -37,14 +37,45 @@ input[type="submit"] {
   margin: 3px;
   padding: 3px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-button {
-  height: 30px;
-  width: 60px;
-  margin: 3px;
-  padding: 3px;
-  border-radius: 5px;
+.sortBtn {
+  border-radius: 4px;
+  background-color: lightgrey;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 36px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.sortBtn:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 5px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.sortBtn:hover {
+  background-color: black;
+  color: white;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.sortBtn:hover:after {
+  opacity: 1;
+  right: 10px;
 }
 
 table {
@@ -82,13 +113,14 @@ tr:nth-child(even) {
 
 .btn {
   text-decoration: none;
-  background-color: lightgrey;
-  color: black;
   height: 30px;
   width: 60px;
   margin: 3px;
   padding: 3px;
   border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .errorMsg {
