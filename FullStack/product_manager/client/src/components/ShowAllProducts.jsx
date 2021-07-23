@@ -17,6 +17,7 @@ export default ({ products, removeFromDom }) => {
       });
   };
 
+  // pulled from w3schools: https://www.w3schools.com/howto/howto_js_sort_table.asp
   const sortTable = (e) => {
     let table,
       rows,

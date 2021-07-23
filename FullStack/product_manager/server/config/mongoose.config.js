@@ -11,6 +11,7 @@ mongoose
     // these are required to get rid of deprecation methods in the terminal
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => console.log(`*** Established a connection to the database ***`))
   .catch((err) =>
