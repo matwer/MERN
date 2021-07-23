@@ -5,10 +5,15 @@ import { Link, navigate } from "@reach/router";
 import "./myCSS.css";
 
 const Update = (props) => {
-  console.log("props in Update: " + props);
+  // console.log("props in Update: " + props);
+  // deconstruct the id from props
   const { id } = props;
+
   // set up variables for storing and updating the db
   const [authorsName, setAuthorsName] = useState("");
+
+  // set up variables for front end and backend validations
+  const [authorsNameError, setAuthorsNameError] = useState("");
   const [dbErrors, setDBErrors] = useState([]);
 
   // Grab the author information when the page loads
@@ -17,7 +22,19 @@ const Update = (props) => {
       console.log(res.data);
       setAuthorsName(res.data.authorsName);
     });
-  }, [id]);
+  }, [id]); // tracking any changes to the id here
+
+  // frontend validation for the authors name
+  const handleAuthorsName = (e) => {
+    // console.log(e.target.value);
+    setAuthorsName(e.target.value);
+
+    if (e.target.value.length < 3) {
+      setAuthorsNameError("Authors name must be at least 3 characters");
+    } else {
+      setAuthorsNameError("");
+    }
+  };
 
   // on submit, do the things
   const updateAuthor = (e) => {
@@ -49,10 +66,17 @@ const Update = (props) => {
       <h3>Edit author</h3>
       {/* <h5>Hello World! from Update.jsx!</h5> */}
       <form onSubmit={updateAuthor}>
-        {/* post any errors here */}
+        {/* show frontend validation errors here */}
+        {authorsNameError ? (
+          <p style={{ color: "red" }}>{authorsNameError}</p>
+        ) : (
+          <p></p>
+        )}
+
+        {/* post backend validation errors here */}
         {dbErrors.map((err, i) => (
           <p className="errorMsg" key={i}>
-            *** {err} ***
+            {err}
           </p>
         ))}
         <p>
@@ -61,13 +85,15 @@ const Update = (props) => {
             type="text"
             name="authorsName"
             id="authorsName"
-            value={authorsName} // dbl binding
-            onChange={(e) => setAuthorsName(e.target.value)}
+            value={authorsName}
+            onChange={handleAuthorsName}
           />
         </p>
         <input type="submit" value="Submit" />
         <button>
-          <Link to={"/"}>Cancel</Link>
+          <Link to={"/"} className="btn">
+            Cancel
+          </Link>
         </button>
       </form>
     </div>

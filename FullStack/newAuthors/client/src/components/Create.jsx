@@ -53,7 +53,14 @@ const Create = (props) => {
     <div className="main">
       {/* <h5>Hello World! from NewAuthor.jsx!</h5> */}
       <h3>Add an author</h3>
-      {/* post any backend errors here */}
+      {/* show frontend validation errors here */}
+      {authorsNameError ? (
+        <p style={{ color: "red" }}>{authorsNameError}</p>
+      ) : (
+        <p></p>
+      )}
+
+      {/* show backend validation errors here */}
       {dbErrors.map((err, i) => (
         <p className="errorMsg" key={i}>
           *** {err} ***
@@ -61,12 +68,6 @@ const Create = (props) => {
       ))}
       <form onSubmit={addAuthor}>
         <p>
-          {/* show frontend validation errors here */}
-          {authorsNameError ? (
-            <p style={{ color: "red" }}>{authorsNameError}</p>
-          ) : (
-            <p>&nbsp;</p>
-          )}
           <label htmlFor="name">Name: </label>
           <input
             type="text"
