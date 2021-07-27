@@ -9,10 +9,7 @@ import NewProductForm from "../components/NewProductForm";
 import ShowAllProducts from "../components/ShowAllProducts";
 
 // set up the client side route
-export default () => {
-  // set a default message while the page loads
-  const [message, setMessage] = useState("Loading...");
-
+const Main = () => {
   // set up a local variable (an empty array) for products
   const [products, setProducts] = useState([]);
 
@@ -28,19 +25,17 @@ export default () => {
   }, []);
 
   // set up a fcn to upload the DOM on delete and send the fcn to ShowAllProducts
-  const removeFromDom = (productId) => {
-    setProducts(products.filter((product) => product._id != productId));
-  };
+  // const removeFromDom = (productId) => {
+  //   setProducts(products.filter((product) => product._id !== productId));
+  // };
 
   return (
     <>
       {/* <h3>Hello! from Main js!</h3> */}
-      {/* load the NewProduct component */}
-      <NewProductForm />
       {/* pass the loaded boolean, display the ShowProducts form and pass in the array of products */}
-      {loaded && (
-        <ShowAllProducts products={products} removeFromDom={removeFromDom} />
-      )}
+      {loaded && <ShowAllProducts products={products} />}
     </>
   );
 };
+
+export default Main;

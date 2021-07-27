@@ -9,7 +9,7 @@ const {
 
 // export the routes to server.js
 module.exports = (app) => {
-  app.post("/api/products/new", create);
+  app.post("/api/products", create);
   app.get("/api/products/:id", findOne);
   app.get("/api/products", findAll);
   app.put("/api/products/:id", findOneAndUpdate);

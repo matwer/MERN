@@ -4,7 +4,7 @@ const express = require(`express`);
 
 // initialize express and set the default port
 const app = express();
-const PORT = 8000;
+const PORT = 8001;
 
 // tell express to use cors and save entries as JSON
 app.use(cors());

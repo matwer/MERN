@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import axios from "axios";
 
-export default (props) => {
+const ShowOneProduct = (props) => {
   // set up a local variable to store the product
   const [product, setProduct] = useState({});
 
@@ -13,7 +13,7 @@ export default (props) => {
     axios
       .get("http://localhost:8000/api/products/" + props.id)
       .then((res) => setProduct(res.data));
-  }, []);
+  }, [props.id]);
 
   const deleteProduct = (productId) => {
     axios
@@ -31,7 +31,6 @@ export default (props) => {
       <button>
         <Link to={"/products/" + product._id + "/edit"}>Edit</Link>
       </button>
-      |
       <button
         onClick={(e) => {
           deleteProduct(product._id);
@@ -39,7 +38,6 @@ export default (props) => {
       >
         Delete
       </button>
-      |
       <button>
         <Link to={"/products"} className="btn">
           Cancel
@@ -48,3 +46,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default ShowOneProduct;
